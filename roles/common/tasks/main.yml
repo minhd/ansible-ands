@@ -1,0 +1,4 @@
+---
+- include: install_repo.yml
+- include: install_common_packages.yml
+- include: install_composer.yml

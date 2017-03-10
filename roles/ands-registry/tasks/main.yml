@@ -1,0 +1,6 @@
+---
+- name: Checkout ANDS Research Data Registry
+  git:
+    repo: https://github.com/au-research/ANDS-ResearchData-Registry
+    dest: /var/www/registry
+    version: develop

@@ -1,0 +1,28 @@
+- name: Install httpd and php
+  yum: name={{ item }} state=present
+  with_items:
+   - httpd
+   - php56w
+   - php56w-common
+   - php56w-mysql
+
+- name: insert iptables rule for httpd
+  lineinfile: dest=/etc/sysconfig/iptables create=yes state=present regexp="80" insertafter="^:OUTPUT "
+              line="-A INPUT -p tcp  --dport 80 -j  ACCEPT"
+  notify:
+    - restart iptables
+    - restart httpd
+
+- name: http service state
+  service: name=httpd state=started enabled=yes
+
+# Put SELinux in permissive mode, logging actions that would be blocked.
+- selinux:
+    policy: targeted
+    state: permissive
+
+# allow httpd to connect to remote database
+- seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes

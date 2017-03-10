@@ -1,0 +1,28 @@
+---
+# This playbook deploys the whole application stack in this site.
+
+
+
+# - name: Common Installation/Configuration
+#   hosts: localtest
+#   roles:
+#     - common
+
+# - name: Redis Installation/Configuration
+#   hosts: localtest
+#   roles:
+#     - redis
+
+- hosts: localtest
+  roles:
+     - oracle-java
+
+# - name: Web servers Installation/Configuration
+#   hosts: localtest
+#   roles:
+#     - web
+
+# - name: Common Installation/Configuration
+#   hosts: localtest
+#   roles:
+#     - ands-registry

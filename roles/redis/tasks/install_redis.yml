@@ -1,0 +1,6 @@
+---
+- name: Ensure Redis is installed.
+  package:
+    name: "redis"
+    state: present
+    disable_gpg_check: yes

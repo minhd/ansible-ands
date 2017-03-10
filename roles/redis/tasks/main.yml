@@ -1,0 +1,2 @@
+# Setup/install tasks.
+- include: install_redis.yml
