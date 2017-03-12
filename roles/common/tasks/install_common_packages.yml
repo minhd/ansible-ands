@@ -12,3 +12,5 @@
    - ant
    - ant-contrib
    - vim-enhanced
+   - telnet
+   - locate

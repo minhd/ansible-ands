@@ -1,3 +1,4 @@
+---
 - name: Install httpd and php
   yum: name={{ item }} state=present
   with_items:
